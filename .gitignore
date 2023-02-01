@@ -1,0 +1,13 @@
+.DS_Store
+403
+dirs
+dirs-small
+fuzz
+js-secrets
+js-sinks
+names
+phpshell
+sqli
+traversal
+urlfuzz
+xss

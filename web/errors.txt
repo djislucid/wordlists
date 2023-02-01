@@ -1,0 +1,16 @@
+error
+exception
+illegal
+invalid
+fail
+stack
+access
+directory
+file
+not found
+varchar
+ODBC
+SQL
+SELECT
+lucid
+111111

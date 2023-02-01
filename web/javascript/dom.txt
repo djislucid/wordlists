@@ -1,0 +1,6 @@
+document.location
+document.URL
+document.URLUnencoded
+document.referrer
+window.location
+window.hash
