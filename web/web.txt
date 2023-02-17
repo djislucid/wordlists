@@ -26986,6 +26986,7 @@ FS_Inc
 FS_InterFace
 FT
 FTB
+FTE
 FTP
 FTP.html
 FTPROOT
@@ -84002,6 +84003,7 @@ ftc
 ftc-disclosure
 ftd
 fte
+fteLogQueryOp
 ftemplates
 ftes
 ftest
@@ -96072,6 +96074,8 @@ interviu
 interwiki
 intestazioni
 intext
+intffteLogQuery-service.serviceagent
+intfwsfteLogQueryEndpoint0
 intheknow
 inthenews
 inthenews.html
