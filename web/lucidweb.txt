@@ -133492,6 +133492,7 @@ ePlan
 ePqHGkD
 ePrIa_y
 eProduct
+eProxy/service/fteLogQuery_Router\?wsdl
 ePvcir9
 ePyT20F
 ePyvQf_
@@ -235456,6 +235457,7 @@ server-error.aspx
 server-errors
 server-images
 server-info
+server-manager
 server-properties.jsp
 server-props.jsp
 server-scripts
@@ -237590,6 +237592,7 @@ shiawassee
 shibayamarivayahoocombr
 shibboleth-sp
 shibboleth.sso
+shibboleth.sso/metadata
 shibboleth/login.php
 shibong_aning
 shichuan
@@ -258542,6 +258545,7 @@ univer
 univers
 univers.asp
 universal
+universal-root.crl0
 universalimages
 universalsearch
 universia
