@@ -1,0 +1,13 @@
+document.location
+document.URL
+document.URLUnencoded
+document.referrer
+window.location
+window.hash
+document.write(
+document.writeln(
+document.domain
+.innerHTML
+.outerHTML
+.insertAdjacentHTML
+.onevent
