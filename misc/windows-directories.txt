@@ -1,0 +1,2 @@
+C:\inetpub\wwwroot
+C:\windows\system32\inetsrv
