@@ -582,6 +582,7 @@
 .6.9
 .6.edu
 .6.html
+.6.json
 .60
 .605
 .608
@@ -2911,6 +2912,8 @@
 .thumbs
 .ticket
 .ticket.submit
+.tidy.6.json
+.tidy.infinity.json
 .tif
 .tiff
 .tim
@@ -3182,6 +3185,7 @@
 /api/v3/graphql
 /api/v3/playground
 /console
+/crx/
 /explorer
 /graphiql
 /graphql
@@ -49018,6 +49022,7 @@ approved
 approved.html
 apps
 apps.php
+apps.tidy.infinity.json
 apps/web/vs_diag.cgi
 apps1
 apps2
@@ -54254,6 +54259,9 @@ bin.aspx
 bin.bak
 bin.old
 bin.php
+bin.tidy.infinity.json
+bin/querybuilder.json
+bin/querybuilder.json/?type=rep:User&p.hits=selective&p.properties=rep:principalName%20rep:password&p.limit=100
 bin/start_admin
 bin03
 bin1
@@ -66364,6 +66372,7 @@ content.css
 content.edit
 content.htm
 content.html
+content.infinity.json
 content.js
 content.jsp
 content.nsf
@@ -66372,6 +66381,7 @@ content.preview
 content.swf
 content.txt
 content.xml
+content/geometrixx
 content1
 content1.html
 content2
@@ -67547,6 +67557,7 @@ cpv
 cpw
 cpx
 cq
+cq/libs/cq/xssprotection/config.xml
 cqi
 cqr
 cr
@@ -68091,6 +68102,7 @@ cruz
 cruzeiro
 crv
 crx
+crx/de/index.jsp
 crxdqwhfa
 cry
 cry-baby
@@ -78457,6 +78469,9 @@ etats-unis
 etax
 etc
 etc.
+etc/packages
+etc/packages.html
+etc/replication
 etc_temp
 etd
 eteam
@@ -101907,6 +101922,7 @@ librovisitas
 libs
 libs.html
 libs.php
+libs/cq/core/content/login.html
 libs_html
 libsecure
 libsecure.php
@@ -145951,6 +145967,8 @@ somefilename
 somefolder
 somen
 someotherfolder
+somepage?debug=layout
+somepage?wcmmode=edit
 somerset
 somervell
 something
@@ -150140,6 +150158,9 @@ system.css
 system.htm
 system.html
 system.php
+system/admin
+system/console
+system/sling/cqform/defaultlogin.html
 system2
 system32
 system_1
@@ -159348,6 +159369,7 @@ vapour.html
 var
 var.inc
 var.php
+var/classes.tidy.infinity.json
 varanasi
 varer
 varese
