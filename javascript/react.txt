@@ -1,0 +1,7 @@
+dangerouslySetInnerHTML=
+innerHTML=
+<a href=
+location.href
+new Function(
+eval(
+{...userDefinedPropsObject}

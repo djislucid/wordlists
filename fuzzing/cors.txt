@@ -1,8 +1,8 @@
-.wearelucid.io
-@wearelucid.io
-#wearelucid.io
-,wearelucid.io
-http://wearelucid.io
-https://wearelucid.io.<good_domain>
-//wearelucid.io
-%60.wearelucid.io
+.{domain}
+@{domain}
+#{domain}
+,{domain}
+http://{domain}
+https://{domain}.{goodDomain}
+//{domain}
+%60.{domain}

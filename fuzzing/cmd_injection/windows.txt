@@ -1,3 +1,9 @@
+{separator}ipconfig
+{separator}dir
+{separator}ver
+{separator}echo %CD%
+{separator}whoami
+{separator}ping -n 30 127.0.0.1 
 ipconfig
 dir
 ver
