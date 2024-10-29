@@ -6,3 +6,4 @@ http://{domain}
 https://{domain}.{goodDomain}
 //{domain}
 %60.{domain}
+\@{domain}
