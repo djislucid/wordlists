@@ -1,3 +1,5 @@
+/h
+/help
 {separator}ipconfig
 {separator}dir
 {separator}ver

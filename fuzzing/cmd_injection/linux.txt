@@ -1,3 +1,5 @@
+--help
+--version
 {separator}ifconfig
 {separator}ls
 {separator}uname -a
