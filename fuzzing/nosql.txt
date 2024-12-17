@@ -5,7 +5,7 @@ $nin
 $where: '1 == 1'
 ' && this.password.match(/.*/)//+%00
 ' && this.passwordzz.match(/.*/)//+%00
-' } ], $comment:'successful MongoDB injection'
+' } ], $comment:'successful MongoDB {canary} injection'
 '"\/$[].>
 '"\;{}
 '"`{

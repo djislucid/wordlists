@@ -9,6 +9,7 @@ Many of these may contain variables. These will be the same variables for conven
 {path}
 {file}
 {separator}
+{canary}
 ```
 
 When using these against your targets you can either match and replace these ahead of time, or simply set Match and Replace rules when using these lists in Burp Intruder.
