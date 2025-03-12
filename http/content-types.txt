@@ -40,6 +40,7 @@ text/markdown
 text/x-python
 text/x-c
 text/x-java-source
+text/event-stream
 image/png
 image/jpeg
 image/gif
@@ -50,4 +51,5 @@ audio/ogg
 video/mp4
 video/webm
 multipart/form-data
+application/notreal
 
