@@ -1,0 +1,2 @@
+%0a%0dX-Injected-Header: {canary}
+%0aX-Real-IP: 127.0.0.1

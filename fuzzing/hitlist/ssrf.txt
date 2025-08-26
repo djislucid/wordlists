@@ -1,0 +1,5 @@
+http://127.0.0.1/
+http://[::1]/
+http://{url}/
+http://169.254.169.254/latest/meta-data/
+http://{url}#@127.0.0.1
