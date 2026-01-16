@@ -12,6 +12,7 @@
 %2527
 %ff%fe
 \u0027
+%ef%bc%87
 &bsol;
 undefined
 ../../../

