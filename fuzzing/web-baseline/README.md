@@ -1,10 +1,23 @@
-## Methodology
+# Methodology
 
-The base methodology for initiall fuzzing of GET/POST parameters works like this:
+I'm putting this together as a living methodology document for how I conduct web-based server-side and API fuzzing. The idea is to have a few short, high-impact wordlists that are made up of key characters that are likely to break syntax and cause errors. The goal is not to spam payloads in hopes something happens, but instead to rapidly assess whether or not the parameters are potentially vulnerable, and if not, move on as quickly as possible. By keeping them short, you can run these in a few passes with different encodings. Hopefully, at the end, you will be able to tell if there's any chance of unhandled exception, which encoding caused it, and what the context is. 
 
+**Encodings**
+- urlencoded
+- double urlencoded
+- unicoded
+
+Phase 1 - Triage
+Phase 2 - Context and encoding behavior discovery
+Phase 3 - Technology detection
+Phase 4 - Targeted attacks
+
+## Initial Server-side Fuzzing
+
+The methodology for initial fuzzing of GET/POST parameters works like this:
 
 #### Setup
-1. Load your base.txt list
+1. Load the *base.txt* list (in Intruder)
 2. Set basic transport safety encoding in Intruder using the *Payload encoding -> URL-encode these characters* input at the bottom of Intruder settings:
     - GET: `?&=# /\"`
     - POST: `\"` 
@@ -46,13 +59,74 @@ This works even if the app doesn’t throw errors, because you’re using the ou
 - %22
 
 
-#### Unicode Homoglyphs
+## Carriage Return Line Feed
+
+#### Methodology
+
+**crlf.txt**: Useful for injecting into the end of GET request lines, request headers, and optionally into typical GET and POST parameters (you never know). Hopefully useful for testing proxies. 
+
+1. Load the `crlf.txt` list
+2. Set basic transport safety encoding in Intruder using the *Payload encoding -> URL-encode these characters*. URLencode spaces only. 
+3. Set you payload positions and let it run 
+
+#### Detection
+
+Even if you don't see your header returned in a response, there are other possible signs, including:
+
+1. Response splitting symptoms (two responses in one, malformed or duplicated status lines, drastic content size changes/truncated or missing bodies)
+2. Redirect behavior changes (a 200 turns into a redirect or vice versa)
+3. Cache anomalies
+4. Proxy/gateway error mode changes
+5. Differential behavior across HTTP versions (strange behavior on HTTP/1.1 but not HTTP/2 or vice versa)
+
+
+## Unicode Homoglyphs
+
+Many of these look normal but are actually homoglyph variants. 
+
+```
+# ---- FULLWIDTH QUOTES / STRING BREAKERS ----
+＇
+＂
+｀
+
+# ---- FULLWIDTH SEPARATORS / OPERATORS ----
+｜
+＆
+＋
+＝
+⁼
+
+# ---- FULLWIDTH PATH / ROUTING CHARACTERS ----
+／
+＼
+．
+
+# ---- PATH TRAVERSAL VARIANTS ----
+／..／
+..／..／
+＼..＼
+..＼..＼
+
+# ---- SYMBOL NORMALIZATION / FILTER BYPASS ----
+﹣
+－
+＃
+﹟
+＊
+
+# ---- YEN / WON SYMBOLS (BACKSLASH CONFUSION) ----
+¥
+₩
+```
 
 **Resources:**
+- https://unicode-explorer.com/
 - https://book.hacktricks.wiki/en/pentesting-web/unicode-injection/unicode-normalization.html
 - https://appcheck-ng.com/wp-content/uploads/unicode_normalization.html
 - https://0xacb.com/normalization_table
 - https://www.compart.com/en/unicode/U+00A5 (sometimes decodes to a forward slash)
+- https://github.com/carlospolop/sqlmap_to_unicode_template
 
 ```
 o – %e1%b4%bc
@@ -68,7 +142,3 @@ r – %e1%b4%bf
 | – %ef%bd%9c
 ```
 
-
-#### To Do
-
-- [x] ~~Watch base.txt when initially fuzzing to see if your literal entries of space, tab, and carriage return line feed actually are processing correctly~~. We're moving CRLF to an independent list. 
