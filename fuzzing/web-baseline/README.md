@@ -30,9 +30,9 @@ The methodology for initial fuzzing of GET/POST parameters works like this:
 
 #### Fuzzing
 - **Pass #1**: Send as-is with only the transport safety encoding above
-- **Pass #2**: Set *Payload processing > Add > Encode > URL-encode key characters*. Keep the transport encoding settings from pass #1 the exact same
-- **Pass #3**: Set an additional, identical urlencode payload processing rule, keeping everything else from pass 1 and 2 the same
-- **Pass #4**: Remove all payload processing rules, clear the base.txt payloads and load unicode.txt
+- **Pass #2**: Set *Payload processing > Add > Encode > URL-encode all characters*. Keep the transport encoding settings from pass #1 the exact same
+- **Pass #3**: Set another urlencode payload processing rule, but make sure this one is only URLencode **key** characters. This ensures double urlencoding because it will only encode the `%` character in the original urlencoded payloads. Make sure to keep everything else from pass 1 and 2 the same
+- **Pass #4**: Remove all payload processing rules, clear the base.txt payloads, load unicode.txt at let it run
 
 **A note on transport encoding..**
 > While the initial pass should remain unencoded, if you are fuzzing GET parameters you'll need to urlencode a few characters to make sure that the HTTP request is syntactically accurate, otherwise you'll get HTTP error responses without actually fuzzing anything.
