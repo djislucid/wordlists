@@ -32,19 +32,16 @@ The methodology for initial fuzzing of GET/POST parameters works like this:
 - **Pass #1**: Send as-is with only the transport safety encoding above
 - **Pass #2**: Set *Payload processing > Add > Encode > URL-encode all characters*. Keep the transport encoding settings from pass #1 the exact same
 - **Pass #3**: Set another urlencode payload processing rule, but make sure this one is only URLencode **key** characters. This ensures double urlencoding because it will only encode the `%` character in the original urlencoded payloads. Make sure to keep everything else from pass 1 and 2 the same
-- **Pass #4**: Remove all payload processing rules, clear the base.txt payloads, load unicode.txt at let it run
+- **Pass #4**: Remove all payload processing rules (except for the suffix), clear the base.txt payloads, load unicode.txt at let it run
+- **Optional - Pass #5**: Keep the same settings from pass #4, but add a Match/Replace rule to replace `%u` with `\\u`. 
 
-> [!NOTE] Payload processing rule order matters 
-> Make sure that the Add Suffix rule is always at the bottom of the list. By the time you are onto pass #3 the rule should be ordered with "URL-encode all characters" at the top, "URL-encode key characters" in the middle, and finally "Add Suffix: {canaryString}" at the bottom.
+#### Misc Notes
 
+**Payload processing rule order matters**
+Make sure that the Add Suffix rule is always at the bottom of the list. By the time you are onto pass #3 the rule should be ordered with "URL-encode all characters" at the top, "URL-encode key characters" in the middle, and finally "Add Suffix: {canaryString}" at the bottom.
 
-**A note on transport encoding..**
-> While the initial pass should remain unencoded, if you are fuzzing GET parameters you'll need to urlencode a few characters to make sure that the HTTP request is syntactically accurate, otherwise you'll get HTTP error responses without actually fuzzing anything.
-
-In general, when fuzzing GET requests the full list of characters you should transport encode is:
-`?&=#% /\@"<>`
-
-However, since our base.txt list doesn't contain all of those, you can simply encode the ones mentioned in step #2. 
+**Transport encoding matters**
+In general, when fuzzing GET requests the full list of characters you should transport encode is `?&=#% /\@"<>`. However, since our base.txt list doesn't contain all of those, you can simply encode the ones mentioned in step #2. 
 
 
 #### Interpreting Results
