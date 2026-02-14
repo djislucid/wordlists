@@ -34,6 +34,10 @@ The methodology for initial fuzzing of GET/POST parameters works like this:
 - **Pass #3**: Set another urlencode payload processing rule, but make sure this one is only URLencode **key** characters. This ensures double urlencoding because it will only encode the `%` character in the original urlencoded payloads. Make sure to keep everything else from pass 1 and 2 the same
 - **Pass #4**: Remove all payload processing rules, clear the base.txt payloads, load unicode.txt at let it run
 
+> [!NOTE] Payload processing rule order matters 
+> Make sure that the Add Suffix rule is always at the bottom of the list. By the time you are onto pass #3 the rule should be ordered with "URL-encode all characters" at the top, "URL-encode key characters" in the middle, and finally "Add Suffix: {canaryString}" at the bottom.
+
+
 **A note on transport encoding..**
 > While the initial pass should remain unencoded, if you are fuzzing GET parameters you'll need to urlencode a few characters to make sure that the HTTP request is syntactically accurate, otherwise you'll get HTTP error responses without actually fuzzing anything.
 
