@@ -23,7 +23,8 @@ The methodology for initial fuzzing of GET/POST parameters works like this:
 2. Set basic transport safety encoding in Intruder using the *Payload encoding -> URL-encode these characters* input at the bottom of Intruder settings:
     - GET: `&=# /\<>"`
     - POST: `\"` 
-3. Add an Intruder Match/Replace rule to replace `\{canary}` with a literal string, e.g. `canaryString`
+~~3. Add an Intruder Match/Replace rule to replace `\{canary}` with a literal string, e.g. `canaryString`~~
+3. In Payload processing, set a rule to Add Suffix and specify whatever canary string you desire (no special chars in this string)
 4. Set your payload positions
 
 
