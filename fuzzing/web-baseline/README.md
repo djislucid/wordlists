@@ -12,6 +12,8 @@ Phase 2 - Context and encoding behavior discovery
 Phase 3 - Technology detection
 Phase 4 - Targeted attacks
 
+
+
 ## Initial Server-side Fuzzing
 
 The methodology for initial fuzzing of GET/POST parameters works like this:
@@ -19,7 +21,7 @@ The methodology for initial fuzzing of GET/POST parameters works like this:
 #### Setup
 1. Load the *base.txt* list (in Intruder)
 2. Set basic transport safety encoding in Intruder using the *Payload encoding -> URL-encode these characters* input at the bottom of Intruder settings:
-    - GET: `?&=# /\"`
+    - GET: `&=# /\<>"`
     - POST: `\"` 
 3. Add an Intruder Match/Replace rule to replace `\{canary}` with a literal string, e.g. `canaryString`
 4. Set your payload positions
@@ -30,6 +32,14 @@ The methodology for initial fuzzing of GET/POST parameters works like this:
 - **Pass #2**: Set *Payload processing > Add > Encode > URL-encode key characters*. Keep the transport encoding settings from pass #1 the exact same
 - **Pass #3**: Set an additional, identical urlencode payload processing rule, keeping everything else from pass 1 and 2 the same
 - **Pass #4**: Remove all payload processing rules, clear the base.txt payloads and load unicode.txt
+
+**A note on transport encoding..**
+> While the initial pass should remain unencoded, if you are fuzzing GET parameters you'll need to urlencode a few characters to make sure that the HTTP request is syntactically accurate, otherwise you'll get HTTP error responses without actually fuzzing anything.
+
+In general, when fuzzing GET requests the full list of characters you should transport encode is:
+`?&=#% /\@"<>`
+
+However, since our base.txt list doesn't contain all of those, you can simply encode the ones mentioned in step #2. 
 
 
 #### Interpreting Results
