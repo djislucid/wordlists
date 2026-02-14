@@ -120,6 +120,99 @@ Many of these look normal but are actually homoglyph variants.
 ₩
 ```
 
+Here's a Ruby-based zsh alias for quickly printing these out on macOS:
+```ruby
+alias unicodehomoglyphs='ruby -e "
+require \"uri\"
+
+chars = %w[
+＇ ＂ ｀
+｜ ＆ ＋ ＝ ⁼
+／ ＼ ．
+﹣ － ＃ ﹟ ＊
+¥ ₩
+]
+
+combos = %w[
+／..／
+..／..／
+＼..＼
+..＼..＼
+¥..¥
+..¥..¥
+]
+
+def urlenc(s)
+  URI.encode_www_form_component(s)
+end
+
+def cps(s)
+  s.codepoints.map { |cp| sprintf(\"U+%04X\", cp) }.join(\" \")
+end
+
+puts \"# Single characters\"
+chars.each do |c|
+  puts \"#{c}\t#{cps(c)}\t#{urlenc(c)}\"
+end
+
+puts \"\n# Combos\"
+combos.each do |c|
+  puts \"#{c}\t#{cps(c)}\t#{urlenc(c)}\"
+end
+"'
+```
+
+Here's the python version for those who hate Ruby (and because I won't be bothered to install Ruby on Windows):
+```python
+#!/usr/bin/env python3
+import urllib.parse
+
+CHARS = [
+    # FULLWIDTH QUOTES / STRING BREAKERS
+    "＇", "＂", "｀",
+
+    # FULLWIDTH SEPARATORS / OPERATORS
+    "｜", "＆", "＋", "＝", "⁼",
+
+    # FULLWIDTH PATH / ROUTING CHARACTERS
+    "／", "＼", "．",
+
+    # SYMBOL NORMALIZATION / FILTER BYPASS
+    "﹣", "－", "＃", "﹟", "＊",
+
+    # YEN / WON SYMBOLS (BACKSLASH CONFUSION)
+    "¥", "₩",
+]
+
+COMBOS = [
+    "／..／",
+    "..／..／",
+    "＼..＼",
+    "..＼..＼",
+    "¥..¥",
+    "..¥..¥",
+]
+
+def urlenc_utf8(s: str) -> str:
+    # Percent-encode UTF-8 bytes (HackTricks-style)
+    return urllib.parse.quote(s, safe="")
+
+def codepoints_hex(s: str) -> str:
+    return " ".join(f"U+{cp:04X}" for cp in map(ord, s))
+
+def main() -> None:
+    print("# Single characters")
+    for ch in dict.fromkeys(CHARS):  # de-dupe preserving order
+        print(f"{ch}\t{codepoints_hex(ch)}\t{urlenc_utf8(ch)}")
+
+    print("\n# Combos")
+    for s in dict.fromkeys(COMBOS):
+        print(f"{s}\t{codepoints_hex(s)}\t{urlenc_utf8(s)}")
+
+if __name__ == "__main__":
+    main()
+```
+
 **Resources:**
 - https://unicode-explorer.com/
 - https://book.hacktricks.wiki/en/pentesting-web/unicode-injection/unicode-normalization.html
