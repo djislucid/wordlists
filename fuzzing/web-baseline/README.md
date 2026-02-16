@@ -79,7 +79,10 @@ This works even if the app doesn’t throw errors, because you’re using the ou
 
 1. Load the `crlf.txt` list
 2. Set basic transport safety encoding in Intruder using the *Payload encoding -> URL-encode these characters*. URLencode spaces only. 
-3. Set you payload positions and let it run 
+3. Set Match/Replace rules
+- Replace `\{canary}` with your chosen string
+- Replace `\{header}` with a real or arbitrary header. Good options include `Content-Type`, `Set-Cookie`, etc. 
+4. Set you payload positions and let it run 
 
 #### Detection
 
