@@ -1,0 +1,12 @@
+\bDomSanitizer\b
+\bbypassSecurityTrust(?:Html|Url|ResourceUrl|Script)\s*\(
+\b(?:SafeHtml|SafeUrl|SafeResourceUrl|SafeScript)\b
+
+\[\s*innerHTML\s*\]\s*=
+\binnerHtml\b
+
+\bdangerouslySetInnerHTML\b
+\b__html\b
+
+\bv-html\b
+\{@html\b

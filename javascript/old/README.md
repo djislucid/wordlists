@@ -1,4 +1,4 @@
-# Client-side Wordlists
+# Client-Side Wordlists
 
 **Sources**
 ```
@@ -20,6 +20,9 @@ params
 # DOM INPUTS (USER-CONTROLLED)
 .addEventListener('input'
 .addEventListener('change'
+.value
+.valueAsNumber
+.valueAsDate
 FormData(
 
 # STORAGE (PERSISTED TAINT)
@@ -59,21 +62,24 @@ $sanitize
 
 # React
 dangerouslySetInnerHTML
-__html
+createElement(
+useMemo(
+useEffect(
+ref=
 
 # Vue/Svelte
 v-html
 {@html
 ```
 
-**Sinks**
+**DOM Sinks**
 ```
 # DOM execution / JS codegen
 eval(
 new Function(
-Function(
 setTimeout(
 setInterval(
+Function(
 
 # HTML injection sinks
 innerHTML
@@ -82,23 +88,18 @@ insertAdjacentHTML
 document.write(
 document.writeln(
 DOMParser(
-parseFromString(
 createContextualFragment(
 Range.prototype.createContextualFragment(
 $.parseHTML(
 jQuery.parseHTML(
-.html(
-.append(
-.prepend(
-.before(
-.after(
 
-# URL / navigation sinks (open redirect, javascript: URL execution)
+# URL / navigation sinks (open redirect, DOM XSS via javascript: URLs, UXSS-ish gadgets)
 location=
 location.assign(
 location.replace(
 location.href
 window.open(
+navigate(
 history.pushState(
 history.replaceState(
 
@@ -112,30 +113,40 @@ formaction=
 data=
 poster=
 
-# Script injection primitives
+# Script/style/link injection primitives (often appear in gadget chains)
 createElement('script'
 createElement("script"
 appendChild(
 insertBefore(
 replaceChild(
+setProperty(
 
 # postMessage entrypoints (DOM XSS / logic bugs via message handling)
 addEventListener('message'
 addEventListener("message"
 onmessage
 postMessage(
+
+# storage/session taint sources/sinks (often used in chains, auth flow issues)
+localStorage.setItem(
+sessionStorage.setItem(
+localStorage.getItem(
+sessionStorage.getItem(
+
+# network construction points (client-side path manipulation / SSRF-ish within same-origin APIs)
+fetch(
+XMLHttpRequest(
+open(
+send(
+setRequestHeader(
+WebSocket(
+EventSource(
+
+# JSON / parsing edges (prototype pollution chains, logic bugs)
+JSON.parse(
 ```
 
-## Methodology
-
-The above lists are a clean reference, but if you are planning on manually searching Sources for any of these, rely on the individual files in this repository which contain regex searches. These will be useful for findings any of these red flags in both minified and un-minified code, and are not dependant on naming conventions (e.g. window.postMessage vs just postMessage). 
-
-**sources.txt**: Contains a list of regex searches which find common user input entry points. Typically during testing you will be focusing on individual application functionality, and setting breakpoints depending on what that functionality is, so often this list will not be used. However, it's a good reference if you want to get a broader idea of all possible entry points in the application. 
-
-**frameworks.txt**: These are regex searches looking for any high-impact framework-specific red flags. If any of these are discovered, focus heavily on assessing whether or not user input makes it into these. 
-
-**sinks.txt**: High-impact DOM sinks. 
-
+### Methodology
 
 1. Start with sinks.txt
 - Search the whole repo/bundle for sinks.
@@ -146,9 +157,4 @@ The above lists are a clean reference, but if you are planning on manually searc
 
 3. Only then look for sources feeding those sinks
 - Search sources.txt and see if the same file/module touches URL/storage/message/form inputs.
-
-## Useful Breakpoints
-
-WIP
-
 
