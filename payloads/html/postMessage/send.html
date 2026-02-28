@@ -1,0 +1,13 @@
+<!doctype html>
+<!-- Sends one message to the embedding parent -->
+<html>
+<head><meta charset="utf-8"><title>Send to Parent</title></head>
+<body>
+<script>
+  const MESSAGE = { test: "<data>" };
+
+  parent.postMessage(MESSAGE, "*");
+  console.log("SENT", MESSAGE);
+</script>
+</body>
+</html>

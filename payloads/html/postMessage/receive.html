@@ -1,0 +1,14 @@
+<!doctype html>
+<!-- Minimal postMessage receiver -->
+<html>
+<head><meta charset="utf-8"><title>Receive postMessage</title></head>
+<body>
+<script>
+  window.addEventListener("message", (e) => {
+    // Optional: lock to a specific origin once known
+    // if (e.origin !== "https://expected.example") return;
+    console.log("RECV", { origin: e.origin, data: e.data, source: e.source });
+  });
+</script>
+</body>
+</html>

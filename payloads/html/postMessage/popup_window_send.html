@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- Open a popup and send one postMessage -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Popup postMessage</title>
+</head>
+<body>
+  <p>Victim URL: <input id="url" style="width:70%" value="https://victim.example/page"></p>
+  <p>Message: <input id="msg" style="width:70%" value="test"></p>
+  <button id="go">Open popup + send</button>
+
+  <script>
+    // Optional: receive messages back
+    // window.addEventListener("message", (e) => console.log("RECV", e.origin, e.data));
+
+    document.getElementById("go").onclick = () => {
+      const TARGET_URL = document.getElementById("url").value.trim();
+      const msgRaw = document.getElementById("msg").value;
+
+      const win = window.open(TARGET_URL, "_blank");
+      if (!win) return alert("Popup blocked.");
+
+      // Optional: parse JSON if you typed JSON into the input
+      let MESSAGE = msgRaw;
+      try { MESSAGE = JSON.parse(msgRaw); } catch {}
+
+      setTimeout(() => {
+        win.postMessage(MESSAGE, "*");
+        console.log("SENT", MESSAGE);
+      }, 1500);
+    };
+  </script>
+</body>
+</html>

