@@ -1,6 +1,6 @@
 # Wordlists
 
-My curated collection of hand-picked or self-created wordlists. 
+My curated collection of hand-picked or self-created wordlists
 
 ## Wordlist Variables
 
